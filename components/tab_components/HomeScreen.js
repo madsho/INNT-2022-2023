@@ -1,5 +1,5 @@
 //IMPORTS
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, KeyboardAvoidingView, Image } from 'react-native'
 import React from 'react'
 
 //IMPORT COLORS
@@ -10,11 +10,13 @@ const {PRIMARY_COLOR, SECONDARY_COLOR} = COLORS
 const HomeScreen = () => {
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView 
+    style={styles.container}
+    behavior={Platform.OS === "ios" ? "padding" : "height"}>
 
       <Image style={styles.homepage} source={require('../../assets/Homepage.jpg')} />
 
-    </View>
+    </KeyboardAvoidingView>
   )
 }
 

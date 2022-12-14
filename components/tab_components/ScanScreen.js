@@ -1,6 +1,6 @@
 //IMPORTS
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, ActivityIndicator, TouchableOpacity } from 'react-native';
+import { Text, KeyboardAvoidingView , StyleSheet, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
 //IMPORT COLORS
@@ -35,9 +35,9 @@ const ScanScreen = () => {
   if (hasPermission === null) {
     return (
 
-      <SafeAreaView style={styles.container}>
+      <KeyboardAvoidingView style={styles.container}>
         <ActivityIndicator size="large" />
-      </SafeAreaView>
+      </KeyboardAvoidingView>
 
     )
   }
@@ -49,21 +49,23 @@ const ScanScreen = () => {
 
   //RETURN
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView 
+    behavior={Platform.OS === "ios" ? "padding" : "height"}
+    style={styles.container}>
       <BarCodeScanner
         onBarCodeScanned={scanned ? null : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
       />
       {scanned && (
-        <View style={styles.buttonContainer}>
+        <KeyboardAvoidingView style={styles.buttonContainer}>
           <TouchableOpacity style={styles.button} onPress={() => setScanned(false)} >
             <Text style={styles.buttonText}>Scan again</Text>
           </TouchableOpacity>
-        </View>
+        </KeyboardAvoidingView>
         )
       }
         
-    </View>
+    </KeyboardAvoidingView>
   );
 
 

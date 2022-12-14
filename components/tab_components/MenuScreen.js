@@ -1,5 +1,5 @@
 //IMPORTS
-import { StyleSheet, Text, TouchableOpacity, View, Alert, SafeAreaView, ActivityIndicator } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, Alert, ActivityIndicator, KeyboardAvoidingView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { getAuth, signOut } from "firebase/auth"
@@ -97,11 +97,11 @@ const MenuScreen = () => {
   if (!checked) {
         
     return (
-        <SafeAreaView style={styles.container}>
+        <KeyboardAvoidingView style={styles.container}>
 
             <ActivityIndicator size="large" />
 
-        </SafeAreaView>
+        </KeyboardAvoidingView>
 
     )
 
@@ -109,9 +109,11 @@ const MenuScreen = () => {
  
     //MAIN RETURN WITH DATA AND BUTTONS
     return (
-      <SafeAreaView style={styles.container}>
+      <KeyboardAvoidingView 
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}>
 
-        <SafeAreaView style={styles.contentContainer}>
+        <KeyboardAvoidingView style={styles.contentContainer}>
     
           <Text style={styles.data}>Email: {user.email}</Text>
           <Text style={styles.data}>Name: {user.name}</Text>
@@ -119,9 +121,9 @@ const MenuScreen = () => {
           <Text style={styles.data}>Gender: {user.gender}</Text>
           <Text style={styles.data}>Address: {user.address}</Text>
 
-        </SafeAreaView>
+        </KeyboardAvoidingView>
 
-        <SafeAreaView style={styles.buttonContainer}>
+        <KeyboardAvoidingView style={styles.buttonContainer}>
         
         <TouchableOpacity style={[styles.logOutButton ,styles.editButton]} onPress={() => {handleEdit()}}>
             <Text style={styles.editText}>Edit user</Text>
@@ -130,10 +132,10 @@ const MenuScreen = () => {
           <TouchableOpacity style={styles.logOutButton} onPress={() => {handleLogOut()}}>
             <Text style={styles.logOutText}>Log out</Text>
           </TouchableOpacity>
-        </SafeAreaView>
+        </KeyboardAvoidingView>
         
 
-      </SafeAreaView>
+      </KeyboardAvoidingView>
     )
 
 

@@ -83,7 +83,9 @@ const ProfileScreen = ({navigation, route}) => {
       //MAIN RETURN WITH INPUT FIELDS AND SAVE BUTTON
       return (
         
-        <KeyboardAvoidingView style={styles.container}>
+        <KeyboardAvoidingView 
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={styles.container}>
 
             <SafeAreaView style={styles.headerContainer}>
                 <Text style={styles.header}>Welcome to FoodSaver!</Text>

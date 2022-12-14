@@ -1,9 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import {SafeAreaView, Text, Button, StyleSheet, View, TextInput } from 'react-native';
-import { initializeApp } from "firebase/app";
-import firebase from "firebase/compat";
-import MapView, { MarkerAnimated, PROVIDER_GOOGLE } from 'react-native-maps'
-import { Marker, TouchableHighlight } from 'react-native-maps';
+import {SafeAreaView, Text, Button, StyleSheet, KeyboardAvoidingView, TextInput } from 'react-native';
+import MapView, {PROVIDER_GOOGLE } from 'react-native-maps'
+import { Marker} from 'react-native-maps';
 import * as Location from 'expo-location';
 import {Accuracy} from "expo-location";
 
@@ -63,7 +61,8 @@ const changeaddres = async () => {
 };
 
     return (
-      <SafeAreaView>
+      <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}>
         <Button title='Update shops' onPress={() => {update()}}></Button>
         <Button style title="update location" onPress={updateLocation} />
             <TextInput
@@ -95,7 +94,7 @@ const changeaddres = async () => {
                   }) : null}
 
               </MapView>      
-      </SafeAreaView>
+      </KeyboardAvoidingView>
     );
     
 

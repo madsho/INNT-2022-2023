@@ -123,7 +123,9 @@ const LoginScreen = () => {
     } else {
         //MAIN RETURN WITH LOGIN AND SIGN UP
         return (
-            <KeyboardAvoidingView style={styles.container}>
+            <KeyboardAvoidingView 
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            style={styles.container}>
                 <KeyboardAvoidingView style={styles.titleContainer}>
                     <Image source={logo} width="100" height="100"></Image>
                 </KeyboardAvoidingView>
