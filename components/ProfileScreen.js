@@ -83,33 +83,31 @@ const ProfileScreen = ({navigation, route}) => {
       //MAIN RETURN WITH INPUT FIELDS AND SAVE BUTTON
       return (
         
-        <KeyboardAvoidingView 
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.container}>
+        <View style={styles.container}>
 
-            <SafeAreaView style={styles.headerContainer}>
+            <View style={styles.headerContainer}>
                 <Text style={styles.header}>Welcome to FoodSaver!</Text>
                 <Text style={styles.description}>Create a profile by filling out the form</Text>
-            </SafeAreaView>
+            </View>
 
-            <KeyboardAvoidingView style={styles.formContainer}>
+            <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.formContainer}>
 
-                <KeyboardAvoidingView style={styles.inputContainer}>
+                <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.inputContainer}>
                     <Text style={styles.description}>Name</Text>
                     <TextInput style={styles.input} placeholder={`Your name here`} onChangeText={(text) => user.fullName = text}/>
                 </KeyboardAvoidingView>
 
-                <KeyboardAvoidingView style={styles.inputContainer}>
+                <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.inputContainer}>
                     <Text style={styles.description}>Age</Text>
                     <TextInput style={styles.input} placeholder={`Your age here`} keyboardType="number-pad" onChangeText={(text) => user.age = text}/>
                 </KeyboardAvoidingView>
 
-                <KeyboardAvoidingView style={styles.inputContainer}>
+                <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.inputContainer}>
                     <Text style={styles.description}>Gender</Text>
                     <TextInput style={styles.input} placeholder={`Your gender here`} onChangeText={(text) => user.gender = text}/>
                 </KeyboardAvoidingView>
 
-                <KeyboardAvoidingView style={styles.inputContainer}>
+                <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.inputContainer}>
                     <Text style={styles.description}>Address</Text>
                     <TextInput style={styles.input} placeholder={`Your address here`} onChangeText={(text) => user.address = text}/>
                 </KeyboardAvoidingView>
@@ -117,16 +115,16 @@ const ProfileScreen = ({navigation, route}) => {
 
             </KeyboardAvoidingView>
 
-            <SafeAreaView style={styles.buttonContainer}>
+            <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.buttonContainer}>
 
                 <TouchableOpacity style={styles.button} onPress={() => handleSave()}>
                     <Text style={styles.buttonText}>Save and continue</Text>
                 </TouchableOpacity>
 
-            </SafeAreaView>
+            </KeyboardAvoidingView>
 
 
-        </KeyboardAvoidingView>
+        </View>
 
       )
 
