@@ -107,7 +107,6 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         paddingTop: '10%',
         backgroundColor: '#ecf0f1',
-        padding: 8,
     },map:{
         height: '80%'
     }
