@@ -45,7 +45,7 @@ function Map () {
   fetch(URL).then(data=> {
     return data.json()
   }).then(jsonData => {
-   console.log(jsonData.results)
+   //console.log(jsonData.results)
    setShops(jsonData.results); //Sets the data recieved as the nearby shops
   }).catch(error=> {
     console.log(error);
