@@ -9,7 +9,8 @@ import { TextInput } from 'react-native-gesture-handler';
 const {PRIMARY_COLOR, SECONDARY_COLOR, TERTIARY_COLOR, QUATERNARY_COLOR} = COLORS
 
 //GOOGLE MAPS API KEY AND URL-BASE
-const API_KEY = 'AIzaSyAgVKBlvrGi8Bk3X63q7NEWyHX3UllDrE0';
+//const API_KEY = 'AIzaSyAgVKBlvrGi8Bk3X63q7NEWyHX3UllDrE0';
+const API_KEY = 'AIzaSyBQeOKGnEHgTHLWsuYcWpCJnzMbMGU_hOI';
 const url_places_BASE = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=';
 
 
