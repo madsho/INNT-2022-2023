@@ -179,8 +179,7 @@ const styles = StyleSheet.create({
     contentContainer: {
       flex: 7,
       //backgroundColor: "yellow",
-      width: "100%",
-      paddingTop: "10%"
+      width: "100%"
     },
     input: {
         height: 40,
