@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Button, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpacity, Text } from 'react-native';
+import {Button, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpacity, Text, View } from 'react-native';
 import MapView, {PROVIDER_GOOGLE } from 'react-native-maps'
 import { Marker} from 'react-native-maps';
 import * as Location from 'expo-location';
@@ -64,11 +64,11 @@ const changeaddres = async () => {
 };
 
     return (
-      <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      <View
+      //behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.container}>
 
-        <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.mapContainer}>
+        <View style={styles.mapContainer}>
 
           <MapView
               style ={styles.map}
@@ -94,7 +94,7 @@ const changeaddres = async () => {
           </MapView>     
 
 
-        </KeyboardAvoidingView>
+        </View>
 
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.buttonContainer}>
           
@@ -119,7 +119,7 @@ const changeaddres = async () => {
         </KeyboardAvoidingView>
       
       
-      </KeyboardAvoidingView>
+      </View>
 
 
     );
