@@ -62,16 +62,9 @@ const changeaddres = async () => {
 
     return (
       <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}>
-        <Button title='Update shops' onPress={() => {update()}}></Button>
-        <Button style title="update location" onPress={updateLocation} />
-            <TextInput
-                placeholder="Enter address"
-                value={defineAddres}
-                onChangeText={(defineAddres) => setDefineAddress(defineAddres)}
-                style={styles.inputField}/>
-            <Button title='Change address' onPress={() => changeaddres()}/>
-
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}>
+      
         <MapView
               style ={styles.map}
               provider={PROVIDER_GOOGLE}
@@ -93,7 +86,15 @@ const changeaddres = async () => {
                   )
                   }) : null}
 
-              </MapView>      
+              </MapView>     
+              <Button title='Update shops' onPress={() => {update()}}></Button>
+              <Button style title="Update location" onPress={updateLocation} />
+              <TextInput
+                placeholder="Enter address"
+                value={defineAddres}
+                onChangeText={(defineAddres) => setDefineAddress(defineAddres)}
+                style={styles.inputField}/>
+            <Button title='Change address' onPress={() => changeaddres()}/> 
       </KeyboardAvoidingView>
     );
     
@@ -103,12 +104,12 @@ const changeaddres = async () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        paddingTop: '5%',
+        justifyContent: 'flex-start',
+        paddingTop: '10%',
         backgroundColor: '#ecf0f1',
         padding: 8,
     },map:{
-        height: '100%'
+        height: '80%'
     }
 });
 
