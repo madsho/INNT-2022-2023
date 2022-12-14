@@ -1,5 +1,5 @@
 //IMPORTS
-import { StyleSheet, Text, SafeAreaView, TouchableOpacity, ScrollView, KeyboardAvoidingView} from 'react-native'
+import { StyleSheet, Text, SafeAreaView, TouchableOpacity, ScrollView, KeyboardAvoidingView, View} from 'react-native'
 import * as Location from 'expo-location';
 import React, { useState, useEffect } from 'react';
 import { TextInput } from 'react-native-gesture-handler';
@@ -93,9 +93,9 @@ const SearchScreen = () => {
 
   //RETURN
   return (
-    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.container}>
+    <View style={styles.container}>
       
-      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.contentContainer}>
+      <View style={styles.contentContainer}>
 
 
         <ScrollView contentContainerStyle={styles.scrollView} bounces={true}>
@@ -116,7 +116,7 @@ const SearchScreen = () => {
               
           </ScrollView>
 
-      </KeyboardAvoidingView>
+      </View>
 
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.buttonContainer}>
           
@@ -155,7 +155,7 @@ const SearchScreen = () => {
       </KeyboardAvoidingView>
 
 
-    </KeyboardAvoidingView>
+    </View>
   )
 }
 
