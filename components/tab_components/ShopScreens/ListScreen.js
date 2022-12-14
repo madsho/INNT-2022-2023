@@ -3,6 +3,7 @@ import { StyleSheet, Text, SafeAreaView, TouchableOpacity, ScrollView, KeyboardA
 import * as Location from 'expo-location';
 import React, { useState, useEffect } from 'react';
 import { TextInput } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native'
 
 //IMPORT COLORS
 import { COLORS } from "../../../themes.js";
@@ -30,6 +31,10 @@ const SearchScreen = () => {
     loadCoords()
     //console.log("LoadCoords running...");
   }, []);
+
+
+    //Imports navigation
+    const navigation = useNavigation()
 
 
   //ASYNC funtion to load coords
@@ -90,6 +95,12 @@ const SearchScreen = () => {
         };
 
 
+        function getProducts(){
+
+          navigation.replace("Products") 
+
+        }
+
 
   //RETURN
   return (
@@ -104,13 +115,17 @@ const SearchScreen = () => {
                 Array.isArray(shops)
                 ? shops.map((shop, index) => {
                   return(
-                      <SafeAreaView style={styles.shopContainer} key={index}>
+                      <TouchableOpacity 
+                        style={styles.shopContainer} 
+                        key={index}
+                        onPress={()=>{getProducts()}}
+                      >
                           <Text style={styles.shopTextTitle}>{shop.name}</Text>
                           <Text style={styles.shopText}>Address: {shop.vicinity}</Text>
                           <Text style={styles.shopText}>Number of user ratings: {shop.user_ratings_total}</Text>
                           <Text style={styles.shopText}>Total rating: {shop.rating}/5</Text>
 
-                      </SafeAreaView>
+                      </TouchableOpacity>
                   )
               }) : null}
               

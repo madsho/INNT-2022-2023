@@ -7,6 +7,7 @@ import { useNavigation, useRoute } from '@react-navigation/native'
 //IMPORT SCREENS
 import ListScreen from "./ShopScreens/ListScreen";
 import MapScreen from "./ShopScreens/MapScreen";
+import Products from "./ShopScreens/Products";
 
 //IMPORT COLORS
 import { COLORS } from "../../themes.js";
@@ -49,6 +50,7 @@ const ShopNavigator = () => {
         <Stack.Navigator>
           <Stack.Screen options={{headerShown:false}} name="Map" component={MapScreen} />
           <Stack.Screen options={{headerShown:false}} name="List" component={ListScreen} />
+          <Stack.Screen name="Products" component={Products} />
         </Stack.Navigator>
 
       </View>
