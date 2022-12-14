@@ -124,16 +124,16 @@ const LoginScreen = () => {
         //MAIN RETURN WITH LOGIN AND SIGN UP
         return (
             <KeyboardAvoidingView style={styles.container}>
-                <View style={styles.titleContainer}>
+                <KeyboardAvoidingView style={styles.titleContainer}>
                     <Image source={logo} width="100" height="100"></Image>
-                </View>
+                </KeyboardAvoidingView>
 
-                <View style={styles.logInContainer}>
+                <KeyboardAvoidingView style={styles.logInContainer}>
 
-                    <View style={styles.inputContainer}>
+                    <KeyboardAvoidingView style={styles.inputContainer}>
                         <TextInput style={styles.input} placeholder={"Email"} onChangeText={(email) => setEmail(email)} value={email}/>
                         <TextInput style={styles.input} secureTextEntry placeholder={"Password"} onChangeText={(password) => setPassword(password)} value={password}/>
-                    </View>
+                    </KeyboardAvoidingView>
 
                     {errorMsg && (
 
@@ -146,7 +146,7 @@ const LoginScreen = () => {
 
                     )}
                     
-                    <View style={styles.buttonContainer}>
+                    <KeyboardAvoidingView style={styles.buttonContainer}>
 
                         <TouchableOpacity style={styles.signUpButton} onPress={() => handleSignUp()}>
                             <Text style={styles.signUpText}>Sign Up</Text>
@@ -156,9 +156,9 @@ const LoginScreen = () => {
                             <Text style={styles.logInText}>Log In</Text>
                         </TouchableOpacity>
 
-                    </View>
+                    </KeyboardAvoidingView>
 
-                </View>
+                </KeyboardAvoidingView>
 
 
 
