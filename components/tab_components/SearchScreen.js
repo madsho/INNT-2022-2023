@@ -95,6 +95,29 @@ const SearchScreen = () => {
   return (
     <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.container}>
       
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.contentContainer}>
+
+
+        <ScrollView contentContainerStyle={styles.scrollView} bounces={true}>
+
+              {
+                Array.isArray(shops)
+                ? shops.map((shop, index) => {
+                  return(
+                      <SafeAreaView style={styles.shopContainer} key={index}>
+                          <Text style={styles.shopTextTitle}>{shop.name}</Text>
+                          <Text style={styles.shopText}>Address: {shop.vicinity}</Text>
+                          <Text style={styles.shopText}>Number of user ratings: {shop.user_ratings_total}</Text>
+                          <Text style={styles.shopText}>Total rating: {shop.rating}/5</Text>
+
+                      </SafeAreaView>
+                  )
+              }) : null}
+              
+          </ScrollView>
+
+      </KeyboardAvoidingView>
+
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.buttonContainer}>
           
         <TouchableOpacity
@@ -131,30 +154,6 @@ const SearchScreen = () => {
 
       </KeyboardAvoidingView>
 
-      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.contentContainer}>
-
-
-        <ScrollView contentContainerStyle={styles.scrollView} bounces={true}>
-
-              {
-                Array.isArray(shops)
-                ? shops.map((shop, index) => {
-                  return(
-                      <SafeAreaView style={styles.shopContainer} key={index}>
-                          <Text style={styles.shopTextTitle}>{shop.name}</Text>
-                          <Text style={styles.shopText}>Address: {shop.vicinity}</Text>
-                          <Text style={styles.shopText}>Number of user ratings: {shop.user_ratings_total}</Text>
-                          <Text style={styles.shopText}>Total rating: {shop.rating}/5</Text>
-
-                      </SafeAreaView>
-                  )
-              }) : null}
-              
-          </ScrollView>
-
-      </KeyboardAvoidingView>
-
-
 
     </KeyboardAvoidingView>
   )
@@ -168,7 +167,7 @@ const styles = StyleSheet.create({
       flex: 2,
       width: "100%",
       alignItems: "center",
-      justifyContent: "flex-start",
+      justifyContent: "center",
       //backgroundColor: "red"
     },
     container: {
@@ -180,7 +179,8 @@ const styles = StyleSheet.create({
     contentContainer: {
       flex: 7,
       //backgroundColor: "yellow",
-      width: "100%"
+      width: "100%",
+      paddingTop: "10%"
     },
     input: {
         height: 40,
@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
         padding: 15,
         borderRadius: 10,
         alignItems: "center",
-        marginTop: 50
+        marginTop: 10
     },
     logOutText:{
         color: SECONDARY_COLOR,
