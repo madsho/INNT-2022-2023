@@ -1,10 +1,13 @@
 import React, {useState, useEffect} from 'react';
-import {SafeAreaView, Text, Button, StyleSheet, KeyboardAvoidingView, TextInput } from 'react-native';
+import {Button, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpacity, Text } from 'react-native';
 import MapView, {PROVIDER_GOOGLE } from 'react-native-maps'
 import { Marker} from 'react-native-maps';
 import * as Location from 'expo-location';
 import {Accuracy} from "expo-location";
 
+//IMPORT COLORS
+import { COLORS } from "../../themes.js";
+const {PRIMARY_COLOR, SECONDARY_COLOR, TERTIARY_COLOR, QUATERNARY_COLOR} = COLORS
 
 
 //Home screen 
@@ -24,7 +27,7 @@ function Map () {
       }
       let location = await Location.getCurrentPositionAsync({});
       setCurrentLocation(location.coords)
-      console.log(currentLocation);
+      //console.log(currentLocation);
     })();
   }, []);
 
@@ -64,8 +67,10 @@ const changeaddres = async () => {
       <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.container}>
-      
-        <MapView
+
+        <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.mapContainer}>
+
+          <MapView
               style ={styles.map}
               provider={PROVIDER_GOOGLE}
               showsUserLocation={true}
@@ -86,16 +91,37 @@ const changeaddres = async () => {
                   )
                   }) : null}
 
-              </MapView>     
-              <Button title='Update shops' onPress={() => {update()}}></Button>
-              <Button style title="Update location" onPress={updateLocation} />
-              <TextInput
-                placeholder="Enter address"
-                value={defineAddres}
-                onChangeText={(defineAddres) => setDefineAddress(defineAddres)}
-                style={styles.inputField}/>
-            <Button title='Change address' onPress={() => changeaddres()}/> 
+          </MapView>     
+
+
+        </KeyboardAvoidingView>
+
+        <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.buttonContainer}>
+          
+          <TouchableOpacity style={styles.bigButton} onPress={() => {update()}}>
+            <Text style={styles.bigButtonText}>Load Shops</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.smallButton} onPress={updateLocation}>
+            <Text style={styles.smallButtonText}>Update location</Text>
+          </TouchableOpacity>
+
+            <TextInput
+              placeholder="Enter address"
+              value={defineAddres}
+              onChangeText={(defineAddres) => setDefineAddress(defineAddres)}
+              style={styles.input}/>
+
+          <TouchableOpacity style={styles.smallButton} onPress={() => changeaddres()}>
+            <Text style={styles.smallButtonText}>Change address</Text>
+          </TouchableOpacity>
+
+        </KeyboardAvoidingView>
+      
+      
       </KeyboardAvoidingView>
+
+
     );
     
 
@@ -103,13 +129,67 @@ const changeaddres = async () => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'flex-start',
-        paddingTop: '10%',
-        backgroundColor: '#ecf0f1',
-    },map:{
-        height: '80%'
+      flex: 1,
+      justifyContent: 'center',
+      paddingTop: '10%',
+      backgroundColor: SECONDARY_COLOR,
+    },
+    map: {
+      height: '95%'
+    },
+    mapContainer: {
+      flex: 7,
+      //backgroundColor: "yellow",
+      width: "100%",
+      paddingTop: "5%"
+    },
+    buttonContainer: {
+      flex: 3,
+      width: "100%",
+      alignItems: "center",
+      justifyContent: "center",
+      //backgroundColor: "red",
+      padding: "5%"
+    },
+    bigButton: {
+      backgroundColor: PRIMARY_COLOR,
+      width: "60%",
+      padding: 15,
+      borderRadius: 10,
+      alignItems: "center",
+      marginTop: 10
+    },
+    bigButtonText:{
+      color: SECONDARY_COLOR,
+      fontWeight: "700",
+      fontSize: 16,
+    },
+    smallButton: {
+      backgroundColor: PRIMARY_COLOR,
+      alignItems: "center",
+      height: 40,
+      margin: 12,
+      borderWidth: 1,
+      padding: 10,
+      borderRadius: 10,
+      marginTop: 5,
+      borderColor: PRIMARY_COLOR
+    },
+    smallButtonText: {
+      color: SECONDARY_COLOR,
+      fontWeight: "500",
+      fontSize: 14,
+    },
+    input: {
+      height: 40,
+      margin: 12,
+      borderWidth: 1,
+      padding: 10,
+      borderRadius: 10,
+      marginTop: 5,
+      borderColor: PRIMARY_COLOR
     }
+
 });
 
 export default Map

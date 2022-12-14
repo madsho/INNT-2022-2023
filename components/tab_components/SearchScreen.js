@@ -2,10 +2,10 @@
 import { StyleSheet, Text, SafeAreaView, TouchableOpacity, ScrollView, KeyboardAvoidingView} from 'react-native'
 import * as Location from 'expo-location';
 import React, { useState, useEffect } from 'react';
+import { TextInput } from 'react-native-gesture-handler';
 
 //IMPORT COLORS
 import { COLORS } from "../../themes.js";
-import { TextInput } from 'react-native-gesture-handler';
 const {PRIMARY_COLOR, SECONDARY_COLOR, TERTIARY_COLOR, QUATERNARY_COLOR} = COLORS
 
 //GOOGLE MAPS API KEY AND URL-BASE
