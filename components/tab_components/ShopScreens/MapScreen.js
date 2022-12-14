@@ -6,7 +6,7 @@ import * as Location from 'expo-location';
 import {Accuracy} from "expo-location";
 
 //IMPORT COLORS
-import { COLORS } from "../../themes.js";
+import { COLORS } from "../../../themes.js";
 const {PRIMARY_COLOR, SECONDARY_COLOR, TERTIARY_COLOR, QUATERNARY_COLOR} = COLORS
 
 
@@ -131,7 +131,6 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       justifyContent: 'center',
-      paddingTop: '10%',
       backgroundColor: SECONDARY_COLOR,
     },
     map: {
@@ -140,8 +139,7 @@ const styles = StyleSheet.create({
     mapContainer: {
       flex: 7,
       //backgroundColor: "yellow",
-      width: "100%",
-      paddingTop: "5%"
+      width: "100%"
     },
     buttonContainer: {
       flex: 3,
