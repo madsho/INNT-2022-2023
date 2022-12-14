@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 //IMPORT SCREENS
 import HomeScreen from "./tab_components/HomeScreen";
 import SearchScreen from "./tab_components/SearchScreen";
+import MapScreen from "./tab_components/Map";
 import ScanScreen from "./tab_components/ScanScreen";
 import MenuScreen from "./tab_components/MenuScreen";
 
@@ -39,6 +40,10 @@ const TabNavigator = () => {
             return (
               <Ionicons name={'search-outline'} size={size} color={color} />
             )
+          } else if (route.name === 'Map') {
+            return (
+              <Ionicons name={'ios-map-outline'} size={size} color={color} />
+            )
           } else if (route.name === 'Scan'){
             return (
               <Ionicons name={'barcode-outline'} size={size} color={color} /> 
@@ -51,6 +56,7 @@ const TabNavigator = () => {
       {/*4 TAB SCREENS WHICH REDIRECTS TO THE COMPONENTS IN THE COMPONENTS FOLDER*/}
       <Tab.Screen options={{headerShown:false}} name="Home" component={HomeScreen} />
       <Tab.Screen options={{headerShown:false}} name="Search" component={SearchScreen} />
+      <Tab.Screen options={{headerShown:false}} name="Map" component={MapScreen} />
       <Tab.Screen options={{headerShown:false}} name="Scan" component={ScanScreen} />
       <Tab.Screen options={{headerShown:false}} name="Menu" component={MenuScreen} />
 
