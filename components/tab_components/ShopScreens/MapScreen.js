@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {Button, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpacity, Text, View } from 'react-native';
-import MapView, {PROVIDER_GOOGLE } from 'react-native-maps'
+import MapView, {Callout, PROVIDER_GOOGLE } from 'react-native-maps'
 import { Marker} from 'react-native-maps';
 import * as Location from 'expo-location';
 import {Accuracy} from "expo-location";
+import { useNavigation } from '@react-navigation/native'
 
 //IMPORT COLORS
 import { COLORS } from "../../../themes.js";
@@ -38,6 +39,16 @@ function Map () {
       setCurrentLocation(item.coords) 
     } );
   };
+
+   //Imports navigation
+   const navigation = useNavigation()
+
+   function getProducts(){
+
+    navigation.replace("Products") 
+
+  }
+
 
 
   async function update(){ //URL google api ændre alt efter personens loaktion 
@@ -84,9 +95,13 @@ const changeaddres = async () => {
                 {Array.isArray(shops) 
                ? shops.map((shop, index) =>{
                   return(
-                  <Marker key={index} coordinate={{latitude: shop.geometry.location.lat, longitude: shop.geometry.location.lng}}
-                  title = {shop.name}
-                  description = {shop.vicinity}>
+                  <Marker key={index} coordinate={{latitude: shop.geometry.location.lat, longitude: shop.geometry.location.lng}}>  
+                  <Callout onPress={()=>{getProducts()}}>
+                    <View>
+                      <Text>{shop.name}</Text>
+                      <Text>{shop.vicinity}</Text>
+                    </View>
+                  </Callout>
                   </Marker>
                   )
                   }) : null}
