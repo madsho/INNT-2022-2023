@@ -5,7 +5,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 //IMPORT SCREENS
 import HomeScreen from "./tab_components/HomeScreen";
 import ProductsScreen from "./tab_components/ProductsScreen";
-import ScanScreen from "./tab_components/ScanScreen";
 import MenuScreen from "./tab_components/MenuScreen";
 import ShopNavigator from "./tab_components/ShopNavigator";
 
