@@ -15,8 +15,7 @@ import firebaseApp from '../../firebase'
 const db = getDatabase(firebaseApp)
 
 
-
-//SEARCH SCREEN
+//PRODUCTS SCREEN
 const ProductsScreen = () => {
 
   //USESTATES
@@ -25,6 +24,7 @@ const ProductsScreen = () => {
   const [checked, setChecked] = useState(false);
   
 
+  //When the page is loaded the products are recieved from the database in a TRY/CATCH
   useEffect(() => {
 
     try {

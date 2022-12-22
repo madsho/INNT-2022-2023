@@ -45,10 +45,6 @@ const TabNavigator = () => {
             return (
               <Ionicons name={'ios-location-outline'} size={size} color={color} />
             )
-          } else if (route.name === 'Scan'){
-            return (
-              <Ionicons name={'barcode-outline'} size={size} color={color} /> 
-            )
           }
 
         },
@@ -58,7 +54,6 @@ const TabNavigator = () => {
       <Tab.Screen options={{headerShown:false}} name="Home" component={HomeScreen} />
       <Tab.Screen options={{headerShown:false}} name="Products" component={ProductsScreen} />
       <Tab.Screen options={{headerShown:false}} name="Shops" component={ShopNavigator} />
-      <Tab.Screen options={{headerShown:false}} name="Scan" component={ScanScreen} />
       <Tab.Screen options={{headerShown:false}} name="Menu" component={MenuScreen} />
 
     </Tab.Navigator>

@@ -1,3 +1,4 @@
+//IMPORTS
 import React, {useState, useEffect} from 'react';
 import {Button, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpacity, Text, View } from 'react-native';
 import MapView, {Callout, PROVIDER_GOOGLE } from 'react-native-maps'
@@ -11,14 +12,15 @@ import { COLORS } from "../../../themes.js";
 const {PRIMARY_COLOR, SECONDARY_COLOR, TERTIARY_COLOR, QUATERNARY_COLOR} = COLORS
 
 
-//Home screen 
+//MAP SCREEN
 function Map () {
 //https://www.youtube.com/watch?v=AzjWv1X-uyg&ab_channel=TheFlutterFactory
 
+  //USESTATES
   const [currentLocation, setCurrentLocation] = useState({latitude: 55.687241, longitude: 12.561859});  //Standard region so the maps opens
   const [shops, setShops] = useState({}); 
 
-  //Use effect https://docs.expo.dev/versions/latest/sdk/location/
+  //WHEN THE SCREEN IS LOADED THE APP ASKS FOR PERMISSION FOR THE GPS, AND SETS THE LOCATION TO THIS - https://docs.expo.dev/versions/latest/sdk/location/
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
@@ -50,30 +52,49 @@ function Map () {
   }
 
 
-
+  //UPDATE
   async function update(){ //URL google api ændre alt efter personens loaktion 
-  const URL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${currentLocation.latitude}%2C${currentLocation.longitude}&radius=1000&type=supermarket&key=AIzaSyBQeOKGnEHgTHLWsuYcWpCJnzMbMGU_hOI`;
+    
+    const URL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${currentLocation.latitude}%2C${currentLocation.longitude}&radius=1000&type=supermarket&key=AIzaSyBQeOKGnEHgTHLWsuYcWpCJnzMbMGU_hOI`;
 
-  fetch(URL).then(data=> {
-    return data.json()
-  }).then(jsonData => {
-   //console.log(jsonData.results)
-   setShops(jsonData.results); //Sets the data recieved as the nearby shops
-  }).catch(error=> {
-    console.log(error);
-  }) 
+    //FETCH TO RETREICE THE SHOPS AROUND THE LOCATION
+    fetch(URL)
+      .then(data=> {
+
+        return data.json()
+
+      })
+      .then(jsonData => {
+
+        //console.log(jsonData.results)
+        setShops(jsonData.results); //Sets the data received as the nearby shops
+
+      })
+      .catch(error=> {
+        console.log(error);
+
+      }) 
   
-}
-// Usestate for changing address 
-const [defineAddres, setDefineAddress] = useState(""); 
-const changeaddres = async () => {
-  await Location.geocodeAsync(defineAddres).then((data) =>{
-      let coordinates = data[0]//The data is an array and the coordinates are located in the first position
-      setCurrentLocation(coordinates)//the location is set as the current location 
-      
-  }), update()//after this the new shops are recieved 
-};
+  }
 
+
+  // Usestate for changing address 
+  const [defineAddres, setDefineAddress] = useState(""); 
+
+  //CHANGE ADDRESS
+  const changeaddres = async () => {
+
+    await Location.geocodeAsync(defineAddres).then((data) =>{
+
+        let coordinates = data[0]//The data is an array and the coordinates are located in the first position
+
+        setCurrentLocation(coordinates)//the location is set as the current location 
+        
+    }), update()//after this the new shops are recieved 
+
+  };
+
+    //MAIN RETURN
     return (
       <View
       //behavior={Platform.OS === "ios" ? "padding" : "height"}

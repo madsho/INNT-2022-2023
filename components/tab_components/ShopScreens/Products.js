@@ -15,16 +15,15 @@ import firebaseApp from '../../../firebase'
 const db = getDatabase(firebaseApp)
 
 
-
-//SEARCH SCREEN
-const ProductsScreen = () => {
+//PRODUCTS
+const Products = () => {
 
   //USESTATES
   const [errorMessage, setErrorMessage] = useState(null);
   const [products, setProducts] = useState({});
   const [checked, setChecked] = useState(false);
   
-
+  //WHEN THE PAGE IS LOADED THE PRODUCTS ARE RECIEVED FROM THE DB
   useEffect(() => {
 
     try {
@@ -127,7 +126,7 @@ const ProductsScreen = () => {
 
 
 
-export default ProductsScreen
+export default Products
 
 //STYLES
 const styles = StyleSheet.create({

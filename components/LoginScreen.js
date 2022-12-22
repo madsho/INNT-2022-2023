@@ -1,5 +1,5 @@
 //IMPORTS
-import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ActivityIndicator, SafeAreaView } from 'react-native'
+import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, Image, ActivityIndicator, SafeAreaView } from 'react-native'
 import React, {useState, useEffect} from 'react'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, getAuth } from 'firebase/auth'
 import { useNavigation } from '@react-navigation/native'
@@ -60,7 +60,7 @@ const LoginScreen = () => {
             //onsole.log(user.uid);
             //console.log(user.email);
 
-            //Creates til user in Firebase Realtime Database
+            //Creates the user in Firebase Realtime Database
             try {
                 set(ref(db, `/Users/${UID}`), {
                     email: user.email,
@@ -68,7 +68,7 @@ const LoginScreen = () => {
 
                 console.log("SAVED in RealTimeDatabase");
 
-                navigation.replace("Profile", { UID }) //Navigates to Profile Screen, with the UID
+                navigation.replace("Profile", { UID }) //Navigates to Profile Screen, with the UID as a prop
 
             } catch (error) {
                 console.log(`Error: ${error.message}`);

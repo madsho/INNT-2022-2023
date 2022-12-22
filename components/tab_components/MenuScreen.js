@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native'
 import { getAuth, signOut } from "firebase/auth"
 import { getDatabase, ref, onValue } from 'firebase/database'
 
-//IMPORT firebaseApp
+//IMPORT firebaseApp 
 import firebaseApp from '../../firebase'
 const auth = getAuth(firebaseApp)
 const db = getDatabase(firebaseApp)
@@ -25,7 +25,7 @@ const MenuScreen = () => {
   //Imports Navigation
   const navigation = useNavigation()
 
-  //WHEN THE SCREEN IS LOADED THE DATA FROM THE CURRENT LOGGED IN USER IS LOADED FROM THE RTD 
+  //WHEN THE SCREEN IS LOADED THE DATA FROM THE CURRENT LOGGED IN USER IS LOADED FROM THE RealTimeDB 
   useEffect(() => {
 
     const currentUser = auth.currentUser
@@ -52,7 +52,7 @@ const MenuScreen = () => {
   }, [])
 
 
-  //LOG OUT
+  //LOG OUT FUNCTION
   function handleLogOut(){
       
     Alert.alert("Log out?", "You sure you want to log out?",
@@ -85,7 +85,7 @@ const MenuScreen = () => {
   }
 
   //HANDLEEDIT() FUNCTION ---> CURRENTLY WITHOUT FUNCTIONALITY
-  // FUTURE FUNCTIONALITY == the user is sent to the profile screen, with this route --> this is recognized and the user can edit their data
+  //FUTURE FUNCTIONALITY == the user is sent to the profile screen, with this route --> this is recognized and the user can edit their data
   function handleEdit(){
 
     console.log("EDIT IS NOT IMPLEMENTED");

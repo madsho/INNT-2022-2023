@@ -10,13 +10,12 @@ import { COLORS } from "../../../themes.js";
 const {PRIMARY_COLOR, SECONDARY_COLOR, TERTIARY_COLOR, QUATERNARY_COLOR} = COLORS
 
 //GOOGLE MAPS API KEY AND URL-BASE
-//const API_KEY = 'AIzaSyAgVKBlvrGi8Bk3X63q7NEWyHX3UllDrE0';
 const API_KEY = 'AIzaSyBQeOKGnEHgTHLWsuYcWpCJnzMbMGU_hOI';
 const url_places_BASE = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=';
 
 
-//SEARCH SCREEN
-const SearchScreen = () => {
+//LIST SCREEN
+const ListScreen = () => {
 
   //USESTATES
   const [errorMessage, setErrorMessage] = useState(null);
@@ -165,8 +164,6 @@ const SearchScreen = () => {
         </KeyboardAvoidingView>
         
 
-        {/*<TextInput style={styles.input} placeholder={`Radius: ${radius}`} onChangeText={(radius) => setRadius(radius)} value={radius}/>*/}
-
       </KeyboardAvoidingView>
 
 
@@ -174,7 +171,7 @@ const SearchScreen = () => {
   )
 }
 
-export default SearchScreen
+export default ListScreen
 
 //STYLES
 const styles = StyleSheet.create({

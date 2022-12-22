@@ -20,7 +20,7 @@ const ProfileScreen = ({navigation, route}) => {
     const [user, setUser] = useState({})
     const [uid, setUid] = useState(route.params.UID) //Getting the UID from the route parameters
 
-    //When the screen is loaded, the email from the RTD is loaded
+    //When the screen is loaded, the email from the RealTimeDB is loaded
     useEffect(() => {
         if(uid) {
 
@@ -49,7 +49,7 @@ const ProfileScreen = ({navigation, route}) => {
             Alert.alert("Please fill out all fields!")
         } else {
 
-            //TRY/CATCH TO SET (SAVE) THE TYPED DATA IN THE RTD 
+            //TRY/CATCH TO SET (SAVE) THE TYPED DATA IN THE RealTimeDB 
             try {
 
                 set(ref(db, `/Users/${uid}`), {
