@@ -90,7 +90,7 @@ const ProfileScreen = ({navigation, route}) => {
                 <Text style={styles.description}>Create a profile by filling out the form</Text>
             </View>
 
-            <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.formContainer}>
+            <View behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.formContainer}>
 
                 <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.inputContainer}>
                     <Text style={styles.description}>Name</Text>
@@ -113,7 +113,7 @@ const ProfileScreen = ({navigation, route}) => {
                 </KeyboardAvoidingView>
 
 
-            </KeyboardAvoidingView>
+            </View>
 
             <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.buttonContainer}>
 
