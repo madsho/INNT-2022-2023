@@ -10,7 +10,7 @@ import { COLORS } from "../../../themes.js";
 const {PRIMARY_COLOR, SECONDARY_COLOR, TERTIARY_COLOR, QUATERNARY_COLOR} = COLORS
 
 //GOOGLE MAPS API KEY AND URL-BASE
-const API_KEY = 'AIzaSyBQeOKGnEHgTHLWsuYcWpCJnzMbMGU_hOI';
+const API_KEY = '-----KEY GOES HERE----';
 const url_places_BASE = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=';
 
 

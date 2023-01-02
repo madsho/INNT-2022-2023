@@ -55,7 +55,7 @@ function Map () {
   //UPDATE
   async function update(){ //URL google api ændre alt efter personens loaktion 
     
-    const URL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${currentLocation.latitude}%2C${currentLocation.longitude}&radius=1000&type=supermarket&key=AIzaSyBQeOKGnEHgTHLWsuYcWpCJnzMbMGU_hOI`;
+    //const URL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${currentLocation.latitude}%2C${currentLocation.longitude}&radius=1000&type=supermarket&key=-------KEY GOES HERE----`;
 
     //FETCH TO RETREICE THE SHOPS AROUND THE LOCATION
     fetch(URL)
